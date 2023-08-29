@@ -13,7 +13,6 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 ## Instalation
 <aside>
 💡 Make sure that the system is updated →`sudo apt-get update`
-
 </aside>
 
 ### System Versions
@@ -38,8 +37,8 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - `echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc`
 - `source ~/.bashrc`
 - `sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential`
-- sudo apt-get install python-jinja2
-- sudo pip install numpy toml
+- `sudo apt-get install python-jinja2`
+- `sudo pip install numpy toml`
 - `sudo apt install python-rosdep`
 - `sudo rosdep init`
 - `rosdep update`
@@ -55,7 +54,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - `sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev`
 
 ### QGroundControl Installation:
-
+- [QGroundControl site](http://qgroundcontrol.com/)
 - Download the app [here](https://github.com/mavlink/qgroundcontrol/releases/download/v4.1.6/QGroundControl.AppImage)
 - `sudo usermod -a -G dialout $USER`
 - `sudo apt-get remove modemmanager -y`
@@ -66,7 +65,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - Run `./QGroundControl.AppImage`
 
 ### PX4 Firmware:
-
+- [PX4 Firmware site](https://docs.px4.io/main/en/)
 - `git clone https://github.com/PX4/PX4-Autopilot`
 - `cd PX4-Autopilot`
 - `make`
@@ -75,7 +74,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### Project setup
 
-- `git clone [https://github.com/vvannini/harpia.git](https://github.com/vvannini/harpia.git).`
+- `git clone https://github.com/p4aicmc/harpia_test.`
 
 ### Things you might need to do
 
@@ -90,19 +89,22 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ## Running the system
 ### Starting the drone simulation
+#### Terminal 1
 - `sudo su`
 - `cd PX4-Autopilot`
 - `export PX4_HOME_LAT=-22.001333; export PX4_HOME_LON=-47.934152; export PX4_HOME_ALT=847.142652; make px4_sitl gazebo`
 
 ### Starting harpia system
-- In a new terminal:
+#### Terminal 2
+- `cd harpia_test`
 - `source devel/setup.bash`
 - `roslauch harpia.lauch`
 
 ### Starting a new mission
-- In a new terminal:
+#### Terminal 3
+- `cd harpia_test`
 - `source devel/setup.bash`
-- `rosrun mission_planning teste_client.py <>`
+- `rosrun mission_planning teste_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`
 
 ## Simulation Video
 

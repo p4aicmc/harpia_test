@@ -74,7 +74,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### Project setup
 
-- `git clone https://github.com/p4aicmc/harpia_test.`
+- `git clone [https://github.com/p4aicmc/harpia_test.](https://github.com/p4aicmc/harpia_test.git)`
 
 ### Things you might need to do
 

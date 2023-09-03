@@ -26,7 +26,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - `sudo apt install curl libc6 libstdc++6 openjdk-11-jdk python3-prettytable python3-pip python3-lxml libxml2 libxslt1.1`
 - `sudo apt-get install flex bison python3-opencv python3-matplotlib python3-catkin-tools python3-colcon-common-extensions libxml2 libxslt1-dev`
 - `sudo -H pip3 install --upgrade pip`
-- `pip install pyAgrum termcolor toml empy packaging jinja2 rospkg pandas pyproj shapely spicy scikit-learn psutil install future testresources kconfiglib jsonschema sympy==1.7.1 graphviz lxml  seaborn keras tensorflow pyspark plotly cloudpiclke jupyter jupyterlab pyros-genmsg`
+- `pip install pyAgrum termcolor toml empy packaging jinja2 rospkg pandas pyproj shapely spicy scikit-learn psutil install future testresources kconfiglib jsonschema sympy==1.7.1 graphviz lxml  seaborn keras tensorflow pyspark plotly cloudpickle jupyter jupyterlab pyros-genmsg`
 
 ### Ros Installation
 
@@ -89,6 +89,9 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ## Running the system
 ### Starting the drone simulation
+
+Open QGroundControl
+
 #### Terminal 1
 - `sudo su`
 - `cd PX4-Autopilot`
@@ -105,6 +108,8 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - `cd harpia_test`
 - `source devel/setup.bash`
 - `rosrun mission_planning teste_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`
+
+Example: running `rosrun mission_planning teste_client.py 1 2 0` will execute the mission 1 for map 2 with drone 0. The missions, maps and drones are defined in the json files in hapria/json
 
 ## Simulation Video
 

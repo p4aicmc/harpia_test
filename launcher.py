@@ -5,12 +5,13 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+px4path = "/home/$usuario"
 
 # Bash commands executed in each terminal
 terminal1 = """
 usuario=$USER
 sudo -E su -c "
-cd /home/$usuario/PX4-Autopilot;
+cd """+ px4path +"""/PX4-Autopilot;
 export PX4_HOME_LAT=-22.001333;
 export PX4_HOME_LON=-47.934152;
 export PX4_HOME_ALT=847.142652;
@@ -21,7 +22,6 @@ make px4_sitl gazebo;
 terminal2 = """
 usuario=$USER
 sudo -E su -c "
-cd /home/$usuario/harpia_test;
 source devel/setup.bash;
 roslaunch harpia.launch;
 " root
@@ -30,7 +30,6 @@ roslaunch harpia.launch;
 terminal3 = """
 usuario=$USER
 sudo -E su -c "
-cd /home/$usuario/harpia_test;
 source devel/setup.bash;
 rosrun mission_planning test_client.py {mission_id} {map_id} {drone_id};
 " root
@@ -51,22 +50,27 @@ class GridWindow(Gtk.Window):
         button_initMission.connect("clicked", self.on_click_init_mission)
 
         self.entry_missionID = Gtk.Entry()
-        self.entry_missionID.set_text("ID Missão")
         
         self.entry_mapID = Gtk.Entry()
-        self.entry_mapID.set_text("ID Mapa")
 
         self.entry_droneID = Gtk.Entry()
-        self.entry_droneID.set_text("ID Drone")
+
+        label_missionID = Gtk.Label(label="ID Missão")
+        label_mapID = Gtk.Label(label="ID Mapa")
+        label_droneID = Gtk.Label(label="ID Drone")
 
         grid = Gtk.Grid()
 
         grid.add(button_initSim)
         grid.attach_next_to(button_initHarpia, button_initSim, Gtk.PositionType.BOTTOM, 1, 1)
         grid.attach_next_to(button_initMission, button_initHarpia, Gtk.PositionType.BOTTOM, 1, 1)
-        grid.attach(self.entry_missionID, 1, 0, 1, 1)
-        grid.attach(self.entry_mapID, 1, 1, 1, 1)
-        grid.attach(self.entry_droneID, 1, 2, 1, 1)
+        grid.attach(label_missionID, 1, 0, 1, 1)
+        grid.attach(label_mapID, 1, 1, 1, 1)
+        grid.attach(label_droneID, 1, 2, 1, 1)
+        grid.attach(self.entry_missionID, 2, 0, 1, 1)
+        grid.attach(self.entry_mapID, 2, 1, 1, 1)
+        grid.attach(self.entry_droneID, 2, 2, 1, 1)
+        grid.set_column_spacing(10)
         
 
         self.add(grid)
@@ -90,6 +94,5 @@ win = GridWindow()
 win.connect("destroy", Gtk.main_quit)
 win.set_position(1)
 win.show_all()
-win.resize(300, 100)
 
 Gtk.main()

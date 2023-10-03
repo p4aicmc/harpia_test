@@ -17,20 +17,24 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### System Versions
 
-- Ubuntu: Ubuntu 16 LTS
+- Ubuntu: Ubuntu 18 LTS
 - ROS → Melodic
 - QGroundControl → v4.2.1
 
 ### Dependecies
 
 - `sudo apt install curl libc6 libstdc++6 openjdk-11-jdk python3-prettytable python3-pip python3-lxml libxml2 libxslt1.1`
-- `sudo apt-get install flex bison python3-opencv python3-matplotlib python3-catkin-tools python3-colcon-common-extensions libxml2 libxslt1-dev`
+- `sudo apt-get install flex bison python3-opencv python3-matplotlib libxml2 libxslt1-dev`
+- `sudo apt install git`
+- `sudo pip3 install git+https://github.com/catkin/catkin_tools.git`
+- `sudo pip3 install git+https://github.com/colcon/colcon-common-extensions`
 - `sudo -H pip3 install --upgrade pip`
 - `pip install pyAgrum termcolor toml empy packaging jinja2 rospkg pandas pyproj shapely spicy scikit-learn psutil install future testresources kconfiglib jsonschema sympy==1.7.1 graphviz lxml  seaborn keras tensorflow pyspark plotly cloudpickle jupyter jupyterlab pyros-genmsg`
 
 ### Ros Installation
 
 - ROS Installation on Ubuntu → [official link](http://wiki.ros.org/melodic/Installation/Ubuntu)
+- `sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'`
 - `curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -`
 - `sudo apt update`
 - `sudo apt install ros-melodic-desktop-full`
@@ -48,9 +52,9 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - [MAVROS documentation](http://wiki.ros.org/mavros)
 - [MAVROS installation guide](https://docs.px4.io/main/en/ros/mavros_installation.html)
 - `sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras`
+- `sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs`
 - `wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts`
-- `chmod +x install_geographiclib_datasets.sh`
-- `sudo ./install_geographiclib_datasets.sh`
+- `sudo bash ./install_geographiclib_datasets.sh`
 - `sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev`
 
 ### QGroundControl Installation:
@@ -60,13 +64,12 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 - `sudo apt-get remove modemmanager -y`
 - `sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y`
 - LogOut and Login again
-- `wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage`
 - `chmod +x ./QGroundControl.AppImage`
 - Run `./QGroundControl.AppImage`
 
 ### PX4 Firmware:
 - [PX4 Firmware site](https://docs.px4.io/main/en/)
-- `git clone https://github.com/PX4/PX4-Autopilot`
+- `git clone --depth=1 --branch v1.13.2 https://github.com/PX4/PX4-Autopilot/`
 - `cd PX4-Autopilot`
 - `make`
 - `bash ./Tools/setup/ubuntu.sh`
@@ -74,7 +77,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### Project setup
 
-- `git clone [https://github.com/p4aicmc/harpia_test.](https://github.com/p4aicmc/harpia_test.git)`
+- `git clone https://github.com/p4aicmc/harpia_test.git`
 
 ### Things you might need to do
 
@@ -91,6 +94,10 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 ### Starting the drone simulation
 
 Open QGroundControl
+
+### Launcher
+- `Check if PX4-Autopilot is on the home directory of the user, otherwise change the px4path variable in the launcher.py file`
+- `python3 launcher.py`
 
 #### Terminal 1
 - `sudo su`

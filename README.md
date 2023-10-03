@@ -104,14 +104,14 @@ Open QGroundControl
 - `cd PX4-Autopilot`
 - `export PX4_HOME_LAT=-22.001333; export PX4_HOME_LON=-47.934152; export PX4_HOME_ALT=847.142652; make px4_sitl gazebo`
 
-### Starting harpia system
-#### Terminal 2
+#### Starting harpia system
+##### Terminal 2
 - `cd harpia_test`
 - `source devel/setup.bash`
 - `roslauch harpia.lauch`
 
-### Starting a new mission
-#### Terminal 3
+#### Starting a new mission
+##### Terminal 3
 - `cd harpia_test`
 - `source devel/setup.bash`
 - `rosrun mission_planning teste_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`

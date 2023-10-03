@@ -108,15 +108,15 @@ Open QGroundControl
 ##### Terminal 2
 - `cd harpia_test`
 - `source devel/setup.bash`
-- `roslauch harpia.lauch`
+- `roslaunch harpia.launch`
 
 #### Starting a new mission
 ##### Terminal 3
 - `cd harpia_test`
 - `source devel/setup.bash`
-- `rosrun mission_planning teste_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`
+- `rosrun mission_planning test_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`
 
-Example: running `rosrun mission_planning teste_client.py 1 2 0` will execute the mission 1 for map 2 with drone 0. The missions, maps and drones are defined in the json files in hapria/json
+Example: running `rosrun mission_planning test_client.py 1 2 0` will execute the mission 1 for map 2 with drone 0. The missions, maps and drones are defined in the json files in hapria/json
 
 ## Simulation Video
 

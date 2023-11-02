@@ -59,7 +59,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### QGroundControl Installation:
 - [QGroundControl site](http://qgroundcontrol.com/)
-- Download the app [here](https://github.com/mavlink/qgroundcontrol/releases/download/v4.1.6/QGroundControl.AppImage)
+- Download the app [here](https://github.com/mavlink/qgroundcontrol/releases/download/v4.2.1/QGroundControl.AppImage)
 - `sudo usermod -a -G dialout $USER`
 - `sudo apt-get remove modemmanager -y`
 - `sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y`
@@ -77,7 +77,7 @@ Harpia is a system for UAV mission and path planning. The project aims to provid
 
 ### Project setup
 
-- `git clone https://github.com/p4aicmc/harpia_test.git`
+- `git clone https://github.com/vvannini/harpia`
 
 ### Things you might need to do
 
@@ -106,13 +106,13 @@ Open QGroundControl
 
 #### Starting harpia system
 ##### Terminal 2
-- `cd harpia_test`
+- `cd harpia`
 - `source devel/setup.bash`
 - `roslaunch harpia.launch`
 
 #### Starting a new mission
 ##### Terminal 3
-- `cd harpia_test`
+- `cd harpia`
 - `source devel/setup.bash`
 - `rosrun mission_planning test_client.py <ID_MISSION> <ID_MAP> <ID_DRONE>`
 
